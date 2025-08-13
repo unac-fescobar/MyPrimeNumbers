@@ -32,9 +32,27 @@ class PrimeNumbersTest {
 
     @Test
     void getPrimeNumbersInRangeLowerLimitNegative() {
-        Assertions.assertThrows(
+        IllegalArgumentException exception = Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> PrimeNumbers.getPrimeNumbersInRange(-90,96)
         );
+
+        String actualMessage = exception.getMessage();
+        String expectedMessage = "lower limit cannot be negative";
+
+        Assertions.assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    void getPrimeNumbersInRangeLowerLimitGreaterUpperLimit() {
+        IllegalArgumentException exception = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> PrimeNumbers.getPrimeNumbersInRange(80,10)
+        );
+
+        String actualMessage = exception.getMessage();
+        String expectedMessage = "lower limit cannot be greater than upper limit";
+
+        Assertions.assertEquals(expectedMessage, actualMessage);
     }
 }

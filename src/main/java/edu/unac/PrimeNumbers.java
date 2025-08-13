@@ -3,6 +3,8 @@ package edu.unac;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class PrimeNumbers {
     public static List<Integer> getPrimeNumbersInRange(int lowerLimit, int upperLimit) {
         if (lowerLimit <= 0)
